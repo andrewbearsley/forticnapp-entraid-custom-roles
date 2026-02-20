@@ -274,10 +274,10 @@ A custom user group ties together a role (what the user can do) and one or more 
 5. Assign the resource groups you created in step 1
 6. Save
 
-Copy the user group GUID. You need this for the SAML claim. It's in the user group details, or you can pull it via:
+Copy the user group GUID (`userGroupGuid`). You need this for the SAML claim. List all user groups and their GUIDs via:
 
 ```bash
-lacework api get /api/v2/TeamUsers --json
+lacework api get /api/v2/UserGroups --json
 ```
 
 Create one of these for each access pattern you need (e.g. `Alice Read-Only`, `Platform Team Admin`, `Azure Team Power User`).
