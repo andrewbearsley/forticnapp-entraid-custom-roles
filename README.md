@@ -280,8 +280,6 @@ Copy the user group GUID. You need this for the SAML claim. It's in the user gro
 lacework api get /api/v2/TeamUsers --json
 ```
 
-> Note: `lacework team-member list` uses the deprecated `/api/v2/TeamMembers` endpoint and will 403 on accounts using the new RBAC model. Use the API call above instead.
-
 Create one of these for each access pattern you need (e.g. `Alice Read-Only`, `Platform Team Admin`, `Azure Team Power User`).
 
 ## Step 3: Configure the Entra ID enterprise application
