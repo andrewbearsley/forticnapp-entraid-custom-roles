@@ -277,8 +277,10 @@ A custom user group ties together a role (what the user can do) and one or more 
 Copy the user group GUID. You need this for the SAML claim. It's in the user group details, or you can pull it via:
 
 ```bash
-lacework team-member list --json
+lacework api get /api/v2/TeamUsers --json
 ```
+
+> Note: `lacework team-member list` uses the deprecated `/api/v2/TeamMembers` endpoint and will 403 on accounts using the new RBAC model. Use the API call above instead.
 
 Create one of these for each access pattern you need (e.g. `Alice Read-Only`, `Platform Team Admin`, `Azure Team Power User`).
 
@@ -346,7 +348,7 @@ Note: if OAuth is currently enabled, you need to disable it first.
 Verify from the CLI:
 
 ```bash
-lacework team-member list --json | jq '.data[] | select(.userName == "test@example.com")'
+lacework api get /api/v2/TeamUsers --json | jq '.data[] | select(.userName == "test@example.com")'
 ```
 
 ## Examples
